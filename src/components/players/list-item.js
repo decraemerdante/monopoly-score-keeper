@@ -14,7 +14,8 @@ function ListItem(props) {
       <td>{player.budget}</td>
       <td>
         <Link to={path} className="btn btn-primary me-3">
-          Add transaction
+          <i className="bi bi-plus"></i>
+          <span className="d-none d-md-inline-block">Add transaction</span>
         </Link>
         <SalaryBtn player={player} />
       </td>
