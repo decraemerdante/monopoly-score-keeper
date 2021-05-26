@@ -7,6 +7,13 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  BrowserRouter,
+} from "react-router-dom";
 
 const store = configureStore();
 
@@ -15,7 +22,9 @@ ReactDOM.render(
   // and pass the Redux store to as a prop
 
   <Provider store={store}>
-    <App />
+    <BrowserRouter basename="/monopoly-score-keeper">
+      <App />
+    </BrowserRouter>
   </Provider>,
   document.getElementById("root")
 );

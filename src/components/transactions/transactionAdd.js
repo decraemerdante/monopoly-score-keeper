@@ -17,6 +17,10 @@ function AddTransaction() {
 
   const player = players[id];
 
+  players = players.filter(function (el) {
+    return el.name != player.name;
+  });
+
   function handleSubmit(e) {
     e.preventDefault();
 
