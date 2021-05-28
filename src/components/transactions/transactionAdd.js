@@ -25,6 +25,9 @@ function AddTransaction() {
     e.preventDefault();
 
     dispatch(playerActions.addTransactionToPlayer(id, number, receiver));
+
+    setBudget(0);
+    setReceiver(playerEnum.BANK);
   }
 
   function getClassNames(name) {

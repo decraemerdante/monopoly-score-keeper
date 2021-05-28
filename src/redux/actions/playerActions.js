@@ -8,6 +8,14 @@ export const getPlayers = () => {
   };
 };
 
+export const clearGame = () => {
+  return (dispatch) => {
+    dispatch({
+      type: playerEnum.CLEAR_GAME,
+    });
+  };
+};
+
 export const addPlayer = (player) => {
   return (dispatch) => {
     dispatch({

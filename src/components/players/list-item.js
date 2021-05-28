@@ -7,18 +7,21 @@ function ListItem(props) {
   const path = `/transaction/add/${props.number}`;
 
   return (
-    <tr>
-      <td>
-        {player.name} ({props.number})
-      </td>
-      <td>{player.budget}</td>
-      <td>
-        <Link to={path} className="btn btn-primary me-3">
-          Add transaction
-        </Link>
-        <SalaryBtn player={player} />
-      </td>
-    </tr>
+    <div className="border border-1 rounded p-3 mt-3">
+      <div className="row">
+        <div className="col-6">
+          <h3>
+            <Link to={path}>{player.name}</Link>
+          </h3>
+        </div>
+        <div className="col-6">
+          <h3>{player.budget}</h3>
+        </div>
+        <div className="mt-3">
+          <SalaryBtn player={player} />
+        </div>
+      </div>
+    </div>
   );
 }
 
