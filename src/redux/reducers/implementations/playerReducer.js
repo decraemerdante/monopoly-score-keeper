@@ -6,25 +6,34 @@ const freeParking = new Player(playerEnum.FREE_PARKING);
 freeParking.budget = 0;
 const bank = new Player(playerEnum.BANK);
 bank.budget = 10000000;
-const initialState = [bank, freeParking, new Player("Dante")];
+const initialState = [bank, freeParking];
 
 export default function playerReducer(state = initialState, action) {
+  let newState = [...state];
+
+  if (localStorage.getItem("state")) {
+    newState = JSON.parse(localStorage.getItem("state"));
+  }
+
   switch (action.type) {
     case playerEnum.ADD_PLAYER:
-      return [...state, action.payload];
+      newState = [...newState, action.payload];
+      break;
     case playerEnum.GET_PLAYER_BY_ID:
-      return state[action.payload];
+      newState = newState[action.payload];
+      break;
     case playerEnum.ADD_TRANSACTION:
     case playerEnum.ADD_SALARY:
-      let newState = [...state];
-
       newState = AddTransaction(newState, action);
-
-      return newState;
-
-    default:
-      return state;
+      break;
+    case playerEnum.CLEAR_GAME:
+      localStorage.removeItem("state");
+      newState = initialState;
+      break;
   }
+
+  localStorage.setItem("state", JSON.stringify(newState));
+  return newState;
 }
 
 function AddTransaction(state, action) {

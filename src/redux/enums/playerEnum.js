@@ -6,6 +6,7 @@ const playerEnum = {
   BANK: "Bank",
   FREE_PARKING: "Free parking",
   ADD_SALARY: "ADD_SALARY",
+  CLEAR_GAME: "CLEAR_GAME",
 };
 
 export default playerEnum;

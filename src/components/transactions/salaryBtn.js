@@ -14,8 +14,7 @@ function SalaryBtn(props) {
       {player.name != playerEnum.BANK &&
       player.name != playerEnum.FREE_PARKING ? (
         <button className="btn btn-success me-3" onClick={addSalary}>
-          <i className="bi bi-cash"></i>{" "}
-          <span className="d-none d-md-inline-block">Salary</span>
+          <i className="bi bi-cash"></i> Salary
         </button>
       ) : (
         <div></div>
